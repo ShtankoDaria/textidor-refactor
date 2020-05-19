@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const config = require("../config");
+const util = require("util");
 
 // define FILES_DIR
 const FILES_DIR = path.join(__dirname, config.FILES_DIR);
@@ -51,7 +52,6 @@ const handlers = {
 
       // refactor hint:
       res.redirect(303, "/api/files");
-      // handlers.getFiles(req, res, next);
     } catch (err) {
       if (err.code === "ENOENT") res.status(404).end();
       console.error(err);
